@@ -2,7 +2,7 @@ import { ethers, upgrades } from "hardhat";
 
 async function main() {
     const NFTx = await ethers.getContractFactory("NFTxLedger");
-    const NFTx_deploy = await upgrades.upgradeProxy("0xf51303502C1335a692aA882Af3CA8a0708BA11BF", NFTx, { kind: 'uups' })
+    const NFTx_deploy = await upgrades.upgradeProxy("0x558Afa61fD6BA0B25C2d3E33c424dA3F11cAFbC8", NFTx, { kind: 'uups' })
     await NFTx_deploy.waitForDeployment();
 
     console.log(`Contract deployed to ${await NFTx_deploy.getAddress()}`);

@@ -46,6 +46,8 @@ contract NFTxLedger is Initializable, ERC1155Upgradeable, AccessControlUpgradeab
         public
         onlyRole(MINTER_ROLE)
     {
+        require(balanceOf(account, id) == 0, "NFTxLedger: id already minted");
+        
         _mint(account, id, amount, data);
     }
 
@@ -53,6 +55,10 @@ contract NFTxLedger is Initializable, ERC1155Upgradeable, AccessControlUpgradeab
         public
         onlyRole(MINTER_ROLE)
     {
+        for (uint256 i = 0; i < ids.length; i++) {
+            require(balanceOf(to, ids[i]) == 0, "NFTxLedger: id already minted");
+        }
+        
         _mintBatch(to, ids, amounts, data);
     }
 
