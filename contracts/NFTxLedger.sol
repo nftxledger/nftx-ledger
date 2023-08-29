@@ -23,9 +23,7 @@ contract NFTxLedger is Initializable, ERC1155Upgradeable, AccessControlUpgradeab
     bytes32 public constant UPGRADER_ROLE = keccak256("UPGRADER_ROLE");
 
     /// @custom:oz-upgrades-unsafe-allow constructor
-    constructor() {
-        initialize();
-    }
+    constructor() initializer {}
 
     function initialize() initializer public {
         __ERC1155_init("https://nftxledger.com/item#{id}");
@@ -80,6 +78,6 @@ contract NFTxLedger is Initializable, ERC1155Upgradeable, AccessControlUpgradeab
         returns (bool)
     {
         return super.supportsInterface(interfaceId);
-    }
+    } 
 }
 
