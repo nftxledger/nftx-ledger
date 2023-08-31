@@ -44,12 +44,16 @@ NFTx Ledger is an ERC-1155 Contract to identify NFTx artifacts.
 <tr>
 <td>Ethereum</td>
 <td>Not Deployed</td>
-<td>Not Deployed</td>
+<td>-</td>
 </tr>
 <tr>
 <td>Sepolia</td>
-<td>Not Deployed</td>
-<td>Not Deployed</td>
+<td>-</td>
+<td>
+  
+  [0x558Afa61fD6BA0B25C2d3E33c424dA3F11cAFbC8](https://sepolia.etherscan.io/address/0x558afa61fd6ba0b25c2d3e33c424da3f11cafbc8)
+  
+</td>
 </tr>
 </table>
 
