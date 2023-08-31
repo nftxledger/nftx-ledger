@@ -44,7 +44,6 @@ contract NFTxLedger is Initializable, ERC1155Upgradeable, AccessControlUpgradeab
 
     function mint(address account, uint256 id, uint256 amount, bytes memory data)
         public
-        onlyRole(MINTER_ROLE)
     {
         require(balanceOf(account, id) == 0, "NFTxLedger: id already minted");
         
@@ -53,7 +52,6 @@ contract NFTxLedger is Initializable, ERC1155Upgradeable, AccessControlUpgradeab
 
     function mintBatch(address to, uint256[] memory ids, uint256[] memory amounts, bytes memory data)
         public
-        onlyRole(MINTER_ROLE)
     {
         for (uint256 i = 0; i < ids.length; i++) {
             require(balanceOf(to, ids[i]) == 0, "NFTxLedger: id already minted");
