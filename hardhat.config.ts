@@ -10,13 +10,13 @@ dotenv.config();
 
 // Check .env file variables 
 if (!process.env.ALCHEMY_API_KEY) {
-    throw new Error("Please set your ALCHEMY_API_KEY in a .env file");
+    console.log("Missing ALCHEMY_API_KEY, non-local operations might fail");
 }
 if (!process.env.SEPOLIA_PRIVATE_KEY) {
-    throw new Error("Please set your SEPOLIA_PRIVATE_KEY in a .env file");
+    console.log("Missing SEPOLIA_PRIVATE_KEY, non-local operations might fail");
 }
 if (!process.env.ETHERSCAN_API_KEY) {
-    throw new Error("Please set your ETHERSCAN_API_KEY in a .env file");
+    console.log("Missing ETHERSCAN_API_KEY, non-local operations might fail");
 }
 
 // Hardhat Config
@@ -25,7 +25,7 @@ const config: HardhatUserConfig = {
     networks: {
         sepolia: {
             url: `https://eth-sepolia.g.alchemy.com/v2/${process.env.ALCHEMY_API_KEY}`,
-            accounts: [process.env.SEPOLIA_PRIVATE_KEY],
+            accounts: [process.env.SEPOLIA_PRIVATE_KEY || "0000000000000000000000000000000000000000000000000000000000000000"],
             gasPrice: "auto",
         },
         hardhat: {
