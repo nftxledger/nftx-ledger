@@ -1,10 +1,10 @@
-import type { HardhatUserConfig } from "hardhat/config";
+import dotenv from "dotenv";
 
+import type { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
 import "@nomicfoundation/hardhat-ledger";
 import "@nomiclabs/hardhat-solhint";
 import "@openzeppelin/hardhat-upgrades";
-import dotenv from "dotenv";
 
 // Load .env file
 dotenv.config();
@@ -27,7 +27,7 @@ const config: HardhatUserConfig = {
     sepolia: {
       url: `https://eth-sepolia.g.alchemy.com/v2/${process.env.ALCHEMY_API_KEY}`,
       accounts: [
-        process.env.SEPOLIA_PRIVATE_KEY ||
+        process.env.SEPOLIA_PRIVATE_KEY ??
           "0000000000000000000000000000000000000000000000000000000000000000",
       ],
       gasPrice: "auto",
