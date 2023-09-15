@@ -21,7 +21,7 @@ module.exports = {
   rules: {
     "@typescript-eslint/consistent-type-imports": "error",
     "@typescript-eslint/prefer-nullish-coalescing": "error",
-    camelcase: ["error", ,],
+    camelcase: ["error", {}],
     "import/order": [
       "error",
       {
