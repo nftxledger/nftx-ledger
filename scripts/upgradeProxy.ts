@@ -2,16 +2,13 @@ import { ethers, run, upgrades } from "hardhat";
 // import openzeppelin functions
 
 async function main() {
-
   const proxyAddress = "0xCB19467E7B8c326CD7A49193BD2418B2301B8D27";
-  
+
   const NFTx = await ethers.getContractFactory("NFTxLedger");
 
-  const nftxDeploy = await upgrades.upgradeProxy(
-    proxyAddress,
-    NFTx,
-    { kind: "uups" }
-  );
+  const nftxDeploy = await upgrades.upgradeProxy(proxyAddress, NFTx, {
+    kind: "uups",
+  });
   await nftxDeploy.waitForDeployment();
 
   const address = await nftxDeploy.getAddress();
@@ -34,7 +31,7 @@ async function verifyContracts(address: String) {
 
     // verify implementation contract on etherscan
     await run("verify:verify", {
-      address: address,
+      address,
       constructorArguments: [],
     });
   }
